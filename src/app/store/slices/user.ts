@@ -1,7 +1,5 @@
 /** @format */
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-
-import * as Models from "../../../models";
+import { createSlice } from "@reduxjs/toolkit";
 
 export type UserState = {
   id: string;

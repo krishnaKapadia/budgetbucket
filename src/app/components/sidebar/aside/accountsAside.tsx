@@ -73,24 +73,6 @@ const AccountsAside: FunctionComponent = () => {
             </li>
           </ul>
         </section>
-
-        <section>
-          <div className=" mt-16 font-bold text-sm">
-            <h3>CATEGORIES</h3>
-          </div>
-
-          <ul className="mt-4 list-disc">
-            {flatMap(Categories).map(({ name, emoji }) => (
-              <li
-                key={name}
-                className="flex items-center py-3 text-gray-500 cursor-pointer transition-colors duration-150"
-              >
-                <i className={`em ${emoji} mr-4`}></i>
-                <p className="text-black">{name}</p>
-              </li>
-            ))}
-          </ul>
-        </section>
       </aside>
 
       <AddAccountModal
