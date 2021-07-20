@@ -1,0 +1,8 @@
+{
+  "short_name": "Budget Bucket",
+  "name": "Budget Bucket",
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
