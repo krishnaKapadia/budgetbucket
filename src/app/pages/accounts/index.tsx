@@ -109,7 +109,7 @@ const Accounts: FunctionComponent = () => {
 
           <p className="font-semibold text-lg mb-4">Daily transactions</p>
 
-          {data?.map(({ amount, recipient, categoryId, date, note }) => {
+          {data?.map(({ amount, recipient, categoryId, date, note }, idx) => {
             if (
               !isEmpty(searchTerm) &&
               !recipient?.toLowerCase().includes(searchTerm) &&
@@ -120,7 +120,10 @@ const Accounts: FunctionComponent = () => {
             }
 
             return (
-              <div className="inline-flex justify-between items-center w-full py-4 border-b border-gray-100">
+              <div
+                key={idx}
+                className="inline-flex justify-between items-center w-full py-4 border-b border-gray-100"
+              >
                 <div>
                   <p>{recipient || note || getCategoryName(categoryId)}</p>
                   <p className="text-sm text-gray-400">
@@ -151,7 +154,10 @@ const Accounts: FunctionComponent = () => {
             <p className="font-light text-lg mb-4">Expenses by category</p>
 
             {Object.keys(expensesByCategory).map((c, idx) => (
-              <div className="flex items-center justify-between p-4 mb-4 bg-gray-100 rounded-lg">
+              <div
+                key={idx}
+                className="flex items-center justify-between p-4 mb-4 bg-gray-100 rounded-lg"
+              >
                 <div className="flex items-center">
                   <i className={`em ${getCategoryEmoji(c)} mr-4`} />
                   <div>

@@ -38,6 +38,7 @@ const AccountsAside: FunctionComponent = () => {
           <ul className="mt-4 list-disc">
             {accounts?.map((a) => (
               <li
+                key={a.id}
                 onClick={() => toggleSelectedAccount(a)}
                 className={`select-none flex items-center px-10 py-3 text-gray-500 ${
                   a.id === selectedAccount?.id
