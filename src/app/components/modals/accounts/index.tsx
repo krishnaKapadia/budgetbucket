@@ -14,7 +14,7 @@ import {
 import swal from "sweetalert";
 import currency from "currency.js";
 import { Divider } from "@geist-ui/react";
-import { useMutation } from "react-query";
+import { useMutation, useQueryClient } from "react-query";
 import * as CurrencyFormat from "react-currency-format";
 
 import * as Api from "../../../../api";
@@ -28,15 +28,18 @@ export const AddAccountModal: FunctionComponent<Props> = ({
   closeModal,
   isOpen,
 }) => {
+  const queryClient = useQueryClient();
+  const userId = useSelector((state: RootState) => state.user.id);
+
   const [account, updateAccount] = useState(
     Models.EntityFactory.createAccount()
   );
 
-  const userId = useSelector((state: RootState) => state.user.id);
   const accountMutation = useMutation(
     (account: Models.Account) => Api.Account.Create(userId, account),
     {
-      onSuccess: () => {
+      onSuccess: (res) => {
+        queryClient.fetchQuery("accounts");
         closeModal();
         swal("Nice!", "Your account has been added!", "success");
       },

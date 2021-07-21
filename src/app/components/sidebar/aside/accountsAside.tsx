@@ -1,10 +1,8 @@
 /** @format */
 
 import React, { useState, FunctionComponent } from "react";
-import { flatMap } from "lodash";
 import { useDispatch, useSelector } from "react-redux";
 
-import { Categories } from "../../../../constants/categories";
 import { AccountSlice } from "../../../store/slices";
 import * as Queries from "../../../queries";
 import * as Models from "../../../../models";

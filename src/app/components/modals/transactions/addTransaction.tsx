@@ -14,7 +14,7 @@ import {
 import swal from "sweetalert";
 import currency from "currency.js";
 import { useSelector } from "react-redux";
-import { useMutation } from "react-query";
+import { useMutation, useQueryClient } from "react-query";
 import * as CurrencyFormat from "react-currency-format";
 
 import * as Api from "../../../../api";
@@ -28,18 +28,21 @@ export const AddTransactionModal: FunctionComponent<Props> = ({
   closeModal,
   isOpen,
 }) => {
+  const queryClient = useQueryClient();
+  const accountId = useSelector(
+    (state: RootState) => state.accountsPage.activeAccount?.id
+  );
+
   const [transaction, updateTransaction] = useState(
     Models.EntityFactory.createTransaction()
   );
 
-  const accountId = useSelector(
-    (state: RootState) => state.accountsPage.activeAccount?.id
-  );
   const transactionMutation = useMutation(
     (transaction: Models.Transaction) =>
       Api.Transaction.Create(accountId, transaction),
     {
       onSuccess: () => {
+        queryClient.fetchQuery(["transactions", accountId]);
         closeModal();
         swal("Nice!", "Your transaction has been added!", "success");
       },
@@ -88,7 +91,7 @@ export const AddTransactionModal: FunctionComponent<Props> = ({
               />
             </Label>
 
-            <Label className="mt-4 mb-4 ml-6 sm:w-full">
+            {/* <Label className="mt-4 mb-4 ml-6 sm:w-full">
               <span className="flex">
                 Type <p className="text-red-400">*</p>
               </span>{" "}
@@ -107,7 +110,7 @@ export const AddTransactionModal: FunctionComponent<Props> = ({
                   </option>
                 ))}
               </Select>
-            </Label>
+            </Label> */}
 
             {/* <Label className="mt-4 mb-4 ml-6 w-full">
               <span className="flex">
