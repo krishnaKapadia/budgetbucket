@@ -4,18 +4,18 @@ import moment from "moment";
 import { Transaction, TransactionType } from "./transaction";
 import { Account } from "./account";
 
+/**
+ * Responsible for the creation of base entities
+ */
 class EntityFactoryBase {
-  currentOrderNumber: number;
-  workspaceId: string;
-
-  constructor() {
-    this.currentOrderNumber = 100;
-    this.workspaceId = "123abc321";
-  }
-
-  createTransaction(): Transaction {
+  /**
+   * Creates an empty Transaction entity.
+   * @param accountId the account that this transaction will be associated with.
+   * @returns an empty Transaction.
+   */
+  createTransaction(accountId: string): Transaction {
     return {
-      accountId: "8bc5c3ea-dedb-4fba-bc0d-57ff13868fcb",
+      accountId,
       categoryId: undefined,
       note: undefined,
       date: moment().format("YYYY-MM-DD"),
@@ -25,11 +25,16 @@ class EntityFactoryBase {
     };
   }
 
-  createAccount(): Account {
+  /**
+   * Creates an empty Account entity.
+   * @param userId the user who owns this account.
+   * @returns an empty Account.
+   */
+  createAccount(userId: string): Account {
     return {
       bank: undefined,
       name: undefined,
-      userId: "ed238f4b-ca4e-4eca-ae66-7ec9fdce3e28",
+      userId,
       description: undefined,
       balance: undefined,
     };

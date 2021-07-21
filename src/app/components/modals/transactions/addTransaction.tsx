@@ -34,7 +34,7 @@ export const AddTransactionModal: FunctionComponent<Props> = ({
   );
 
   const [transaction, updateTransaction] = useState(
-    Models.EntityFactory.createTransaction()
+    Models.EntityFactory.createTransaction(accountId)
   );
 
   const transactionMutation = useMutation(
@@ -61,7 +61,7 @@ export const AddTransactionModal: FunctionComponent<Props> = ({
   };
 
   useEffect(
-    () => updateTransaction(Models.EntityFactory.createTransaction()),
+    () => updateTransaction(Models.EntityFactory.createTransaction(accountId)),
     [isOpen]
   );
 

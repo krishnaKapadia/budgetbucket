@@ -32,7 +32,7 @@ export const AddAccountModal: FunctionComponent<Props> = ({
   const userId = useSelector((state: RootState) => state.user.id);
 
   const [account, updateAccount] = useState(
-    Models.EntityFactory.createAccount()
+    Models.EntityFactory.createAccount(userId)
   );
 
   const accountMutation = useMutation(
@@ -58,7 +58,7 @@ export const AddAccountModal: FunctionComponent<Props> = ({
   };
 
   useEffect(
-    () => updateAccount(Models.EntityFactory.createAccount()),
+    () => updateAccount(Models.EntityFactory.createAccount(userId)),
     [isOpen]
   );
 
