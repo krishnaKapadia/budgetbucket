@@ -25,7 +25,6 @@ export function getAccountStats(
 
 export function getCategorySpendSummary(transactions: Models.Transaction[]) {
   let dataByCategory = {};
-  console.log(transactions);
 
   transactions?.forEach(({ categoryId, amount }) => {
     if (amount > 0) {
@@ -38,7 +37,6 @@ export function getCategorySpendSummary(transactions: Models.Transaction[]) {
       dataByCategory[categoryId] = amount;
     }
   });
-  console.log(dataByCategory);
 
   return dataByCategory;
 }
