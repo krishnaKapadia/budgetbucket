@@ -29,11 +29,10 @@ const Accounts: FunctionComponent = () => {
 
   const { data } = Queries.useGetTransactions(activeAccount?.id);
 
-  const {
-    totalIncome,
-    totalExpenses,
-    totalNet: totalBalance,
-  } = Utils.getAccountStats(activeAccount, data);
+  const { totalIncome, totalExpenses, totalBalance } = Utils.getAccountStats(
+    activeAccount,
+    data
+  );
   const expensesByCategory = Utils.getCategorySpendSummary(data);
 
   return (

@@ -19,7 +19,7 @@ export function getAccountStats(
   return {
     totalIncome,
     totalExpenses,
-    totalNet: account?.balance + totalIncome - totalExpenses,
+    totalBalance: account?.balance + totalIncome + totalExpenses,
   };
 }
 
