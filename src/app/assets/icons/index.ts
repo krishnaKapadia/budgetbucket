@@ -5,5 +5,13 @@ import { ReactComponent as MoneyIcon } from "./money.svg";
 import { ReactComponent as MenuIcon } from "./menu.svg";
 import { ReactComponent as OutlineLogoutIcon } from "./outlineLogout.svg";
 import { ReactComponent as SearchIcon } from "./search.svg";
+import { ReactComponent as HomeIcon } from "./home.svg";
 
-export { ForbiddenIcon, MoneyIcon, MenuIcon, OutlineLogoutIcon, SearchIcon };
+export {
+  ForbiddenIcon,
+  MoneyIcon,
+  MenuIcon,
+  OutlineLogoutIcon,
+  SearchIcon,
+  HomeIcon,
+};

@@ -961,12 +961,6 @@ video {
   background-color: rgba(26, 28, 35, var(--bg-opacity));
 }
 
-.theme-dark .dark\:bg-gray-900 {
-  --bg-opacity: 1;
-  background-color: #121317;
-  background-color: rgba(18, 19, 23, var(--bg-opacity));
-}
-
 .theme-dark .dark\:bg-red-700 {
   --bg-opacity: 1;
   background-color: #c81e1e;
@@ -1176,14 +1170,6 @@ video {
   display: none;
 }
 
-.theme-dark .dark\:block {
-  display: block;
-}
-
-.theme-dark .dark\:hidden {
-  display: none;
-}
-
 .flex-row {
   flex-direction: row;
 }
@@ -1198,6 +1184,10 @@ video {
 
 .items-center {
   align-items: center;
+}
+
+.content-center {
+  align-content: center;
 }
 
 .justify-end {
@@ -1264,10 +1254,6 @@ video {
   height: 3rem;
 }
 
-.h-32 {
-  height: 8rem;
-}
-
 .h-full {
   height: 100%;
 }
@@ -1310,11 +1296,6 @@ video {
 
 .m-1 {
   margin: 0.25rem;
-}
-
-.my-8 {
-  margin-top: 2rem;
-  margin-bottom: 2rem;
 }
 
 .mx-auto {
@@ -1413,14 +1394,6 @@ video {
 
 .last\:mb-0:last-child {
   margin-bottom: 0;
-}
-
-.max-w-4xl {
-  max-width: 56rem;
-}
-
-.min-h-screen {
-  min-height: 100vh;
 }
 
 .min-w-0 {
@@ -1591,10 +1564,6 @@ video {
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
-.shadow-xl {
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-}
-
 .shadow-inner {
   box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
 }
@@ -1735,12 +1704,6 @@ video {
   color: rgba(244, 245, 247, var(--text-opacity));
 }
 
-.theme-dark .dark\:text-gray-200 {
-  --text-opacity: 1;
-  color: #e5e7eb;
-  color: rgba(229, 231, 235, var(--text-opacity));
-}
-
 .theme-dark .dark\:text-gray-300 {
   --text-opacity: 1;
   color: #d5d6d7;
@@ -1775,12 +1738,6 @@ video {
   --text-opacity: 1;
   color: #31c48d;
   color: rgba(49, 196, 141, var(--text-opacity));
-}
-
-.theme-dark .dark\:text-purple-400 {
-  --text-opacity: 1;
-  color: #ac94fa;
-  color: rgba(172, 148, 250, var(--text-opacity));
 }
 
 .theme-dark .dark\:hover\:text-gray-200:hover {
@@ -167176,12 +167133,17 @@ video {
     max-width: 36rem;
   }
 
-  .sm\:p-12 {
-    padding: 3rem;
+  .sm\:px-8 {
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
 
   .sm\:w-full {
     width: 100%;
+  }
+
+  .sm\:w-screen {
+    width: 100vw;
   }
 }
 
@@ -167212,18 +167174,6 @@ video {
     .md\:container {
       max-width: 1280px;
     }
-  }
-
-  .md\:flex-row {
-    flex-direction: row;
-  }
-
-  .md\:h-auto {
-    height: auto;
-  }
-
-  .md\:w-1\/2 {
-    width: 50%;
   }
 }
 

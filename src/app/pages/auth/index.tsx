@@ -6,8 +6,8 @@ import { apiClient } from "../../../api/init";
 
 function Auth() {
   return (
-    <div className="h-screen container grid content-center justify-center px-6 mx-auto ">
-      <div className="flex flex-col justify-center content-center md:w-96 sm:w-screen sm:px-8">
+    <div className="h-screen container grid content-center justify-center px-6 mx-auto">
+      <div className="flex flex-col justify-center content-center md:w-96 sm:px-8">
         <div className="flex flex-col text-black font-bold text-xl justify-center items-center mb-8">
           <svg
             className="mb-2"

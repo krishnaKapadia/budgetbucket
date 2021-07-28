@@ -13,6 +13,11 @@ export interface RouteData extends RouteBase {
 
 export const routes: Array<RouteData> = [
   {
+    path: "/app/dashboard",
+    icon: "HomeIcon",
+    name: "Home",
+  },
+  {
     path: "/app/accounts",
     icon: "MoneyIcon",
     name: "Clients",
