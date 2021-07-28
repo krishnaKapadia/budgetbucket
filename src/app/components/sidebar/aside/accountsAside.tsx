@@ -12,14 +12,14 @@ import { AddAccountModal } from "../../modals/accounts";
 const AccountsAside: FunctionComponent = () => {
   const dispatch = useDispatch();
 
+  const userId = useSelector((state: RootState) => state.user.id);
   const selectedAccount = useSelector(
     (state: RootState) => state.accountsPage.activeAccount
   );
   const [isAddAccountModalOpen, setAddAccountModalOpen] = useState(false);
 
-  const { data: accounts } = Queries.useGetAccounts(
-    "ed238f4b-ca4e-4eca-ae66-7ec9fdce3e28",
-    (data) => dispatch(AccountSlice.actions.setAccounts(data))
+  const { data: accounts } = Queries.useGetAccounts(userId, (data) =>
+    dispatch(AccountSlice.actions.setAccounts(data))
   );
 
   const toggleAddAccountModal = () =>
