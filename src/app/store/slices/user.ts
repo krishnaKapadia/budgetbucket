@@ -1,5 +1,5 @@
 /** @format */
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 export type UserState = {
   id: string;
@@ -12,5 +12,9 @@ const initialState: UserState = {
 export const UserSlice = createSlice({
   name: "user",
   initialState,
-  reducers: {},
+  reducers: {
+    setUserId: (state, action: PayloadAction<any>) => {
+      state.id = action.payload;
+    },
+  },
 });

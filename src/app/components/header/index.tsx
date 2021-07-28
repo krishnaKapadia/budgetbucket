@@ -2,17 +2,29 @@
 
 import React, { useContext, useState, FunctionComponent } from "react";
 import { Avatar, Dropdown, DropdownItem } from "@windmill/react-ui";
+import { useHistory } from "react-router-dom";
 import swal from "sweetalert";
 
+import { signOut } from "../../../api/auth";
 import { MenuIcon, OutlineLogoutIcon } from "../../assets/icons";
 import { SidebarContext } from "../../context";
 
 export const Header: FunctionComponent = () => {
+  const history = useHistory();
   const { toggleSidebar } = useContext(SidebarContext);
   const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
 
   function handleProfileClick() {
     setIsProfileMenuOpen(!isProfileMenuOpen);
+  }
+
+  async function handleLogout() {
+    // swal(
+    //   "See you next time!",
+    //   "You have been successfully logged out!",
+    //   "success"
+    // );
+    signOut(() => history.push("/login"));
   }
 
   return (
@@ -42,15 +54,7 @@ export const Header: FunctionComponent = () => {
               isOpen={isProfileMenuOpen}
               onClose={() => setIsProfileMenuOpen(false)}
             >
-              <DropdownItem
-                onClick={() =>
-                  swal(
-                    "See you next time!",
-                    "You have been successfully logged out!",
-                    "success"
-                  )
-                }
-              >
+              <DropdownItem onClick={handleLogout}>
                 <OutlineLogoutIcon className="w-4 h-4 mr-3" />
                 <span>Log out</span>
               </DropdownItem>

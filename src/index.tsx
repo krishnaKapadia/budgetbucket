@@ -5,6 +5,7 @@ import React, { Suspense } from "react";
 import { Provider as ReduxProvider } from "react-redux";
 import { Windmill } from "@windmill/react-ui";
 import { QueryClient, QueryClientProvider } from "react-query";
+import { Auth } from "@supabase/ui";
 
 import { ThemedSuspense } from "./app/components/themedSuspense";
 import { Store } from "./app/store";
@@ -15,6 +16,7 @@ import "./app/assets/css/global.css";
 import "./app/assets/css/tailwind.output.css";
 
 import { SidebarProvider } from "./app/context";
+import { apiClient } from "./api/init";
 
 const queryClient = new QueryClient();
 
@@ -24,7 +26,9 @@ ReactDOM.render(
       <QueryClientProvider client={queryClient}>
         <Suspense fallback={<ThemedSuspense />}>
           <Windmill usePreferences>
-            <App />
+            <Auth.UserContextProvider supabaseClient={apiClient}>
+              <App />
+            </Auth.UserContextProvider>
           </Windmill>
         </Suspense>
       </QueryClientProvider>
