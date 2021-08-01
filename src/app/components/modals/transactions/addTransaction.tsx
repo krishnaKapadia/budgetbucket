@@ -1,5 +1,5 @@
 /** @format */
-import React, { FunctionComponent, useState, useEffect } from "react";
+import React, { FunctionComponent, useState, useEffect, useMemo } from "react";
 import {
   Modal,
   ModalFooter,
@@ -21,6 +21,7 @@ import * as Api from "../../../../api";
 import * as Models from "../../../../models";
 import { RootState } from "../../../store";
 import { ModalProps } from "../models";
+import { Categories } from "../../../../constants";
 
 type Props = ModalProps;
 
@@ -48,6 +49,8 @@ export const AddTransactionModal: FunctionComponent<Props> = ({
       },
     }
   );
+
+  const categories = useMemo(() => Object.entries(Categories), []);
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
@@ -150,12 +153,11 @@ export const AddTransactionModal: FunctionComponent<Props> = ({
                   Select a category
                 </option>
 
-                <option className="flex flex-col" value="1">
-                  Automotive
-                </option>
-                <option className="flex flex-col" value="2">
-                  Food & Beverage
-                </option>
+                {categories.map(([id, { name }]) => (
+                  <option className="flex flex-col" value={id}>
+                    {name}
+                  </option>
+                ))}
               </Select>
             </Label>
 

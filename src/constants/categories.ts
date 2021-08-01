@@ -11,71 +11,67 @@ export const Categories = {
   },
   3: {
     name: "Groceries",
-    emoji: "em-bird",
+    emoji: "em-shopping_trolley",
   },
   4: {
     name: "Bills & Fees",
-    emoji: "em-car",
+    emoji: "em-receipt",
   },
   5: {
     name: "Education",
-    emoji: "em-wine_glass",
+    emoji: "em-books",
   },
   6: {
     name: "Entertainment",
-    emoji: "em-bird",
+    emoji: "em-movie_camera",
   },
   7: {
     name: "Family & Personal",
-    emoji: "em-car",
+    emoji: "em-family",
   },
   8: {
     name: "Gifts",
-    emoji: "em-wine_glass",
+    emoji: "em-gift",
   },
   9: {
     name: "Healthcare",
-    emoji: "em-bird",
+    emoji: "em-pill",
   },
   10: {
     name: "Home",
-    emoji: "em-car",
+    emoji: "em-house",
   },
   11: {
     name: "Shopping",
-    emoji: "em-wine_glass",
+    emoji: "em-shopping_bags",
   },
   12: {
     name: "Sport & Hobbies",
-    emoji: "em-bird",
+    emoji: "em-basketball",
   },
   13: {
     name: "Transport",
-    emoji: "em-car",
+    emoji: "em-taxi",
   },
   14: {
     name: "Travel",
-    emoji: "em-wine_glass",
+    emoji: "em-airplane",
   },
   15: {
     name: "Work",
-    emoji: "em-bird",
+    emoji: "em-briefcase",
   },
   16: {
     name: "Other",
-    emoji: "em-bird",
+    emoji: "em-grey_question",
   },
   17: {
     name: "Business",
-    emoji: "em-wine_glass",
+    emoji: "em-man_in_business_suit_levitating",
   },
   18: {
-    name: "Salary",
-    emoji: "em-bird",
-  },
-  19: {
-    name: "Extra Income",
-    emoji: "em-bird",
+    name: "Income",
+    emoji: "em-moneybag",
   },
 };
 
