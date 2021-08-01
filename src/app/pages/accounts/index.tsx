@@ -29,7 +29,7 @@ const Accounts: FunctionComponent = () => {
 
   const { data } = Queries.useGetTransactions(activeAccount?.id);
 
-  const { totalIncome, totalExpenses, totalBalance } = Utils.getAccountStats(
+  const { totalIncome, totalExpenses } = Utils.getAccountStats(
     activeAccount,
     data
   );
@@ -99,7 +99,7 @@ const Accounts: FunctionComponent = () => {
                 Balance
               </p>
               <p className="text-xl font-semibold">
-                {Formatting.formatCurrency(totalBalance)}
+                {Formatting.formatCurrency(activeAccount?.balance)}
               </p>
             </div>
           </div>

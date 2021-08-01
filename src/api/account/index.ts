@@ -7,7 +7,10 @@ import { apiClient } from "../init";
  * @param userId that owns the accounts.
  * @returns an array of accounts that are owned by the specified user.
  */
-export async function Retrieve(userId: string): Promise<Models.Account[]> {
+
+export async function RetrieveForUser(
+  userId: string
+): Promise<Models.Account[]> {
   const { data, error } = await apiClient
     .from("account")
     .select("*")
@@ -18,6 +21,25 @@ export async function Retrieve(userId: string): Promise<Models.Account[]> {
   }
 
   return Promise.resolve(data);
+}
+
+/**
+ * Retrieve an account that matches a given id.
+ * @param accountId of the account.
+ * @returns the matching account if found.
+ */
+
+export async function Retrieve(accountId: string): Promise<Models.Account> {
+  const { data, error } = await apiClient
+    .from("account")
+    .select("*")
+    .eq("id", accountId);
+
+  if (error) {
+    throw error;
+  }
+
+  return Promise.resolve(data[0]);
 }
 
 /**
@@ -39,4 +61,27 @@ export async function Create(
   }
 
   return Promise.resolve(!!data);
+}
+
+export async function UpdateBalance(
+  accountId: string,
+  balance: number
+): Promise<Models.Account> {
+  try {
+    const account = await Retrieve(accountId);
+    const newBalance = account.balance + balance;
+
+    const { data, error } = await apiClient
+      .from("account")
+      .update({ balance: newBalance })
+      .match({ id: accountId });
+
+    if (error) {
+      throw error;
+    }
+
+    return Promise.resolve(data[0]);
+  } catch (error) {
+    throw error;
+  }
 }

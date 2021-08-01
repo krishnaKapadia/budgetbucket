@@ -1,6 +1,7 @@
 /** @format */
 
 import * as Models from "../../models";
+import * as Account from "../account";
 import { apiClient } from "../init";
 
 /**
@@ -11,6 +12,10 @@ import { apiClient } from "../init";
 export async function Retrieve(
   accountId: string
 ): Promise<Models.Transaction[]> {
+  if (!accountId) {
+    return Promise.reject();
+  }
+
   const { data, error } = await apiClient
     .from("transaction")
     .select("*")
@@ -34,13 +39,19 @@ export async function Create(
   accountId: string,
   transaction: Models.Transaction
 ): Promise<boolean> {
-  const { data, error } = await apiClient
-    .from("transaction")
-    .insert([{ ...transaction, accountId }]);
+  try {
+    await Account.UpdateBalance(accountId, transaction.amount);
 
-  if (error) {
+    const { data, error } = await apiClient
+      .from("transaction")
+      .insert([{ ...transaction, accountId }]);
+
+    if (error) {
+      throw error;
+    }
+
+    return Promise.resolve(!!data);
+  } catch (error) {
     throw error;
   }
-
-  return Promise.resolve(!!data);
 }

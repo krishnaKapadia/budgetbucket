@@ -1,5 +1,9 @@
 /** @format */
 
+type Metrics = {
+  total: number;
+};
+
 export type Account = {
   id?: string;
   name: string;
@@ -7,4 +11,5 @@ export type Account = {
   bank: string;
   description?: string;
   balance: number;
+  metrics?: Metrics;
 };

@@ -51,7 +51,7 @@ const Layout: FunctionComponent = () => {
                     />
                   ) : null;
                 })}
-                <Redirect exact from="/app" to="/app/accounts" />
+                <Redirect exact from="/app" to="/app/dashboard" />
                 <Route component={Page404} />
               </Switch>
             </Suspense>

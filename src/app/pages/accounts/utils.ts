@@ -19,7 +19,6 @@ export function getAccountStats(
   return {
     totalIncome,
     totalExpenses,
-    totalBalance: account?.balance + totalIncome + totalExpenses,
   };
 }
 

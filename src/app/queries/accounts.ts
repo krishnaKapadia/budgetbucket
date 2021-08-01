@@ -1,6 +1,7 @@
 /** @format */
 import { useQuery } from "react-query";
 import * as Api from "../../api";
+import { Account } from "../../models/account";
 
 export function useGetAccounts(userId: string, onSuccess?: (e: any) => void) {
   const options = {
@@ -11,5 +12,9 @@ export function useGetAccounts(userId: string, onSuccess?: (e: any) => void) {
       : {}),
   };
 
-  return useQuery("accounts", () => Api.Account.Retrieve(userId), options);
+  return useQuery<Account[]>(
+    "accounts",
+    () => Api.Account.RetrieveForUser(userId),
+    options
+  );
 }
