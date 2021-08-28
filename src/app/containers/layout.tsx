@@ -40,12 +40,12 @@ const Layout: FunctionComponent = () => {
             <Suspense fallback={<ThemedSuspense />}>
               <Switch>
                 {routes.map((route, i) => {
-                  const { path, component: Component } = route;
+                  const { path, exact = true, component: Component } = route;
 
                   return Component ? (
                     <Route
                       key={i}
-                      exact={true}
+                      exact={exact}
                       path={`/app${path}`}
                       render={(props: any) => <Component {...props} />}
                     />

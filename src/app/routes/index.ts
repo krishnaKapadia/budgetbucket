@@ -8,6 +8,7 @@ const Dashboard = lazy(() => import("../pages/dashboard"));
 const routes: Array<{
   path: string;
   component: any;
+  exact?: boolean;
 }> = [
   {
     path: "/dashboard",
@@ -16,6 +17,7 @@ const routes: Array<{
   {
     path: "/accounts",
     component: Accounts,
+    exact: false,
   },
 ];
 

@@ -3,10 +3,14 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 export type UserState = {
   id: string;
+  email: string;
+  displayName: string;
 };
 
 const initialState: UserState = {
-  id: "ed238f4b-ca4e-4eca-ae66-7ec9fdce3e28",
+  id: null,
+  email: null,
+  displayName: null,
 };
 
 export const UserSlice = createSlice({
@@ -16,5 +20,10 @@ export const UserSlice = createSlice({
     setUserId: (state, action: PayloadAction<any>) => {
       state.id = action.payload;
     },
+    setUserEmail: (state, action: PayloadAction<any>) => {
+      state.email = action.payload;
+      const displayName = action.payload.split('@')[0];
+      state.displayName = displayName;
+    }
   },
 });

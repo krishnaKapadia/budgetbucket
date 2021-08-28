@@ -24,7 +24,6 @@ export function getAccountStats(
 
 export function getCategorySpendSummary(transactions: Models.Transaction[]) {
   let dataByCategory = {};
-  console.log(dataByCategory, transactions);
 
   transactions?.forEach(({ categoryId, amount }) => {
     if (amount > 0) {

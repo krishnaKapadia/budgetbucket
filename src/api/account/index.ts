@@ -1,7 +1,8 @@
 /** @format */
+import { getAccountStats } from "../../app/pages/accounts/utils";
 import * as Models from "../../models";
 import { apiClient } from "../init";
-
+import * as Transaction from '../transaction';
 /**
  * Retrieve all accounts that a given user owns.
  * @param userId that owns the accounts.
@@ -84,4 +85,31 @@ export async function UpdateBalance(
   } catch (error) {
     throw error;
   }
+}
+
+
+export async function GetUserOverview(accounts: Models.Account[]): Promise<any> {
+  let income = 0, expenses = 0, netWorth = 0;
+  const promises = [];
+
+  if(accounts) {
+    for(var account of accounts) {
+      promises.push(Transaction.Retrieve(account.id));
+    }
+
+    const responses = await Promise.all(promises);
+
+
+    for(var resIndex in responses) {
+      const account = accounts[resIndex];
+      const transactions = responses[resIndex];
+
+      const { totalIncome, totalExpenses } = getAccountStats(account, transactions);
+      income += totalIncome;
+      expenses += totalExpenses;
+      netWorth += account.balance;
+    }
+  }
+
+  return { income, expenses, netWorth };
 }

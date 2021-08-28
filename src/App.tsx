@@ -25,9 +25,8 @@ function App() {
   useEffect(() => {
     const { data: listener } = apiClient.auth.onAuthStateChange(
       (_event, session) => {
-        console.log(session);
-
         dispatch(Slices.UserSlice.actions.setUserId(session?.user?.id));
+        dispatch(Slices.UserSlice.actions.setUserEmail(session?.user?.email));
       }
     );
 
