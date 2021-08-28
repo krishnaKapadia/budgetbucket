@@ -22,4 +22,9 @@ export const routes: Array<RouteData> = [
     icon: "MoneyIcon",
     name: "Clients",
   },
+  {
+    path: "/app/buckets",
+    icon: "BucketIcon",
+    name: "Buckets",
+  }
 ];

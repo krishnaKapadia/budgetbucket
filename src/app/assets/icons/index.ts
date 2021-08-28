@@ -6,6 +6,7 @@ import { ReactComponent as MenuIcon } from "./menu.svg";
 import { ReactComponent as OutlineLogoutIcon } from "./outlineLogout.svg";
 import { ReactComponent as SearchIcon } from "./search.svg";
 import { ReactComponent as HomeIcon } from "./home.svg";
+import { ReactComponent as BucketIcon } from "./bucket.svg";
 
 export {
   ForbiddenIcon,
@@ -14,4 +15,5 @@ export {
   OutlineLogoutIcon,
   SearchIcon,
   HomeIcon,
+  BucketIcon
 };

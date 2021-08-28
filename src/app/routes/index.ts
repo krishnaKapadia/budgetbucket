@@ -4,6 +4,7 @@ import { lazy } from "react";
 
 const Accounts = lazy(() => import("../pages/accounts"));
 const Dashboard = lazy(() => import("../pages/dashboard"));
+const Buckets = lazy(() => import("../pages/buckets"));
 
 const routes: Array<{
   path: string;
@@ -19,6 +20,10 @@ const routes: Array<{
     component: Accounts,
     exact: false,
   },
+  {
+    path: '/buckets',
+    component: Buckets
+  }
 ];
 
 export default routes;
