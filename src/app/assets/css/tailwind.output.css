@@ -1863,15 +1863,6 @@ video {
   z-index: 50;
 }
 
-.gap-8 {
-  grid-gap: 2rem;
-  gap: 2rem;
-}
-
-.grid-cols-5 {
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-}
-
 .transform {
   --transform-translate-x: 0;
   --transform-translate-y: 0;

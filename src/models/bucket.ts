@@ -1,7 +1,8 @@
 /** @format */
 
 export type Bucket = {
+  id: string;
   categoryId: number;
   budget: number;
-  userId: number;
+  userId: string;
 }

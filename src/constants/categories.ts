@@ -75,7 +75,7 @@ export const Categories = {
   },
 };
 
-export function getCategoryName(id: string) {
+export function getCategoryName(id: string | number) {
   return Categories[id].name;
 }
 

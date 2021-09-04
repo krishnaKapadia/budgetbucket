@@ -21,8 +21,14 @@ const routes: Array<{
     exact: false,
   },
   {
+    path: '/buckets/:id',
+    component: Buckets,
+    exact: false
+  },
+  {
     path: '/buckets',
-    component: Buckets
+    component: Buckets,
+    exact: false
   }
 ];
 

@@ -23,7 +23,7 @@ export const routes: Array<RouteData> = [
     name: "Clients",
   },
   {
-    path: "/app/buckets",
+    path: "/app/buckets/e197a6bf-67af-42e4-8db4-ef0306ec964c",
     icon: "BucketIcon",
     name: "Buckets",
   }
