@@ -3,6 +3,7 @@ import moment from "moment";
 
 import { Transaction, TransactionType } from "./transaction";
 import { Account } from "./account";
+import { Bucket } from "./bucket";
 
 /**
  * Responsible for the creation of base entities
@@ -37,6 +38,14 @@ class EntityFactoryBase {
       userId,
       description: undefined,
       balance: undefined,
+    };
+  }
+
+  createBucket(userId: string): Bucket {
+    return {
+      budget: undefined,
+      categoryId: undefined,
+      userId,
     };
   }
 }
